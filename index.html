@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GMSys 2027</title>
+  <meta name="description" content="GMSys 2027: Third International ACM Green Multimedia Systems Workshop — call for submissions, topics, dates, and organizers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #000080;
+      --accent: #1f7a4d;
+      --text: #222;
+      --muted: #5a5a5a;
+      --bg: #ffffff;
+      --surface: #f5f7f6;
+      --border: #e2e6e4;
+      --max: 1000px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); }
+    a:hover { text-decoration: none; }
+
+    /* Top nav */
+    .site-nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav .inner {
+      max-width: var(--max); margin: 0 auto; padding: 0 16px;
+      display: flex; align-items: center; gap: 24px; height: 56px;
+      overflow-x: auto; white-space: nowrap;
+    }
+    .brand {
+      font-family: Montserrat, sans-serif; font-weight: 800;
+      color: var(--navy); text-decoration: none; letter-spacing: .02em;
+    }
+    .site-nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    .site-nav ul a {
+      color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600;
+    }
+    .site-nav ul a:hover { color: var(--accent); }
+
+    /* Content */
+    main { max-width: var(--max); margin: 0 auto; padding: 32px 16px 64px; }
+    h1, h2, h3 { font-family: Montserrat, sans-serif; line-height: 1.3; }
+    h1 {
+      text-transform: uppercase; color: var(--navy);
+      font-size: clamp(1.4rem, 3.5vw, 2.1rem); font-weight: 800;
+      margin: 0 0 24px;
+    }
+    h2 {
+      color: var(--navy); font-size: 1.5rem; font-weight: 700;
+      margin: 48px 0 16px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+    }
+    h3 { font-size: 1.1rem; font-weight: 700; margin: 28px 0 8px; }
+    p.justify { text-align: justify; }
+
+    .banner { margin: 0 0 8px; }
+    .banner img { display: block; width: 100%; height: auto; border-radius: 6px; }
+
+    .placeholder {
+      display: flex; align-items: center; justify-content: center;
+      background: var(--surface); border: 2px dashed var(--border);
+      color: var(--muted); font-weight: 600; border-radius: 6px;
+      text-align: center; padding: 16px;
+    }
+    .banner .placeholder { aspect-ratio: 21225 / 9449; }
+
+    /* Topics */
+    .topics { display: grid; gap: 16px; padding: 0; list-style: none; }
+    .topics > li {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 6px;
+      padding: 14px 20px;
+    }
+    .topics > li > strong { font-family: Montserrat, sans-serif; color: var(--navy); }
+    .topics ul { margin: 6px 0 0; padding-left: 20px; }
+    .topics ul li { margin: 3px 0; }
+
+    .tba {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; padding: 14px 20px; color: var(--muted); font-style: italic;
+    }
+
+    .paper-types { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .paper-types li {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 20px;
+    }
+    .paper-types strong { color: var(--navy); }
+    .paper-types .limit { color: var(--muted); }
+
+    .dates { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .dates th, .dates td { text-align: left; padding: 12px 20px; border-bottom: 1px solid var(--border); }
+    .dates thead th {
+      background: var(--navy); color: #fff;
+      font-family: Montserrat, sans-serif; font-weight: 700; font-size: 14px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .dates td:last-child { white-space: nowrap; font-weight: 600; }
+    .dates tbody tr:nth-child(even) { background: var(--surface); }
+    .dates tr.highlight td { color: var(--accent); font-weight: 700; }
+    @media (max-width: 600px) { .dates th, .dates td { padding: 10px 12px; } }
+
+    .people { padding-left: 20px; }
+    .people li { margin: 4px 0; }
+    .people .aff { color: var(--muted); }
+
+    .sponsor { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; justify-content: center; margin-top: 16px; }
+    .sponsor img { width: 180px; height: auto; display: block; }
+
+    footer {
+      border-top: 1px solid var(--border); color: var(--muted);
+      font-size: 14px; text-align: center; padding: 24px 16px;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      p.justify { text-align: left; }
+      .topics > li { padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Sections">
+    <div class="inner">
+      <a class="brand" href="#top">GMSys 2027</a>
+      <ul>
+        <li><a href="#call-for-submissions">Call</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#submission-guideline">Submission</a></li>
+        <li><a href="#important-dates">Dates</a></li>
+        <li><a href="#organizers">Organizers</a></li>
+        <li><a href="#sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+    <h1>GMSys 2027: Third International ACM Green Multimedia Systems Workshop</h1>
+
+    <figure class="banner">
+      <img src="images/banner.jpeg" width="1600" height="701"
+           alt="GMSys 2027 — Third International ACM Green Multimedia Systems Workshop, Ghent, Belgium, March 30 – April 2, 2027">
+    </figure>
+
+    <h2 id="call-for-submissions">Call For Submissions</h2>
+    <p class="justify">GMSys 2027 invites contributions on the design, implementation, measurement, and evaluation of energy-efficient and environmentally sustainable multimedia systems. We welcome research papers, position papers, and industry experience reports addressing energy consumption and environmental impact across content capture and generation, processing, storage, delivery, and consumption.</p>
+    <p class="justify">The workshop covers multimedia applications ranging from entertainment to healthcare, drone-based monitoring and rescue, autonomous vehicles, wearable devices, and immersive AR/VR applications, with particular attention to operating under battery, computing, or communication constraints. We invite contributions targeting energy efficiency in emerging multimedia technologies, particularly computationally intensive AI models, multimodal video intelligence, and automated video processing.</p>
+    <p class="justify">Papers on measurement methods, open tools, datasets, and negative results are welcome when they offer useful lessons for the community.</p>
+
+    <h2 id="topics">Call for Contributions</h2>
+    <p>Topics of interest include, but are not limited to:</p>
+    <ul class="topics">
+      <li><strong>Content production and processing</strong>
+        <ul>
+          <li>Energy-efficient content capture, encoding, transcoding, and multimedia production workflows</li>
+          <li>Energy-efficient media storage, archiving, and content lifecycle management</li>
+          <li>Energy-efficient neural video compression and generative AI for video</li>
+          <li>Energy-efficient video and feature coding for human viewing and machine vision</li>
+          <li>Energy-efficient multimodal video understanding and automated video analysis</li>
+          <li>CO<sub>2</sub>-aware Multimodal Large Language Models inference allocation across collaborative computing infrastructure</li>
+          <li>Energy-efficient construction and processing of neural 3D representations, including NeRF and Gaussian splatting</li>
+        </ul>
+      </li>
+      <li><strong>Delivery and networking</strong>
+        <ul>
+          <li>Energy-aware adaptive streaming and transport mechanisms for low-latency, live, and interactive multimedia</li>
+          <li>Energy-efficient caching, content distribution, and CDN operation</li>
+          <li>Energy-efficient wireless, mobile, and multipath multimedia delivery</li>
+          <li>Semantic video communication and neural joint source-channel coding under energy constraints</li>
+          <li>Energy-efficient streaming of immersive and volumetric media, including Gaussian splats and neural scene representations</li>
+          <li>Joint optimization of processing and communication energy in distributed multimedia systems</li>
+        </ul>
+      </li>
+      <li><strong>Consumption and quality of experience</strong>
+        <ul>
+          <li>Energy-efficient decoding, rendering, and display, including immersive media and neural 3D representations</li>
+          <li>Display- and device-aware energy optimization for encoding and playback</li>
+          <li>Energy-efficient multimedia playback on mobile and resource-constrained devices</li>
+          <li>Energy and quality tradeoffs in AI-based video reconstruction, super-resolution, and enhancement</li>
+          <li>Perceptual quality, QoE, and user acceptance of energy-saving service options</li>
+        </ul>
+      </li>
+      <li><strong>Measurement and environmental assessment</strong>
+        <ul>
+          <li>Reproducible energy and carbon benchmarks, datasets, measurement tools, and models</li>
+          <li>End-to-end energy and carbon assessment across multimedia systems and hardware platforms</li>
+          <li>Energy assessment of training and inference for multimedia AI models</li>
+          <li>Joint evaluation of energy, bitrate, perceptual quality, latency, reliability, machine-task accuracy, and battery operating time</li>
+          <li>Lifecycle assessment, embodied impacts, and operational emissions in multimedia systems</li>
+          <li>Energy costs of multimedia security, privacy, and content authenticity mechanisms</li>
+          <li>Privacy-preserving analysis of telemetry data from streaming services, focusing on energy consumption and quality of experience</li>
+          <li>Regulatory requirements and compliance-aware orchestration of distributed multimedia, its data transfers, migration, and access control</li>
+        </ul>
+      </li>
+      <li><strong>Energy-efficient multimedia applications</strong>
+        <ul>
+          <li>Energy-efficient multimedia for monitoring and inspection in energy systems, industry, transportation, and environmental applications</li>
+          <li>Energy-efficient multimedia for disaster monitoring, search and rescue, and emergency response</li>
+          <li>Energy-efficient video sensing and communication using drones, wearable devices, and battery-powered cameras</li>
+          <li>Energy-efficient cloud gaming, multiview streaming, and live media production</li>
+        </ul>
+      </li>
+      <li><strong>Energy-aware multimedia operation and integration with energy systems</strong>
+        <ul>
+          <li>Renewable-aware multimedia streaming, with local electricity generation and battery storage</li>
+          <li>Battery- and mobility-aware multimedia streaming for electric vehicles’ passengers, including battery-aware adaptation and route-aware caching</li>
+          <li>Renewable- and electricity-price-aware execution of compute-intensive AI-based multimedia services across compute infrastructure</li>
+          <li>Forecasting and digital twins for coordinated optimization of multimedia workloads and electricity-production resources</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2 id="submission-guideline">Submission Guideline</h2>
+    <p>We accept the following types of submissions:</p>
+    <ul class="paper-types">
+      <li><strong>Full research papers</strong> <span class="limit">up to 6 pages, including references</span></li>
+      <li><strong>Short / industry position papers</strong> <span class="limit">up to 3 pages, including references</span></li>
+      <li><strong>Extended abstracts</strong> <span class="limit">up to 2 pages, including references</span></li>
+    </ul>
+
+    <h2 id="important-dates">Important Dates</h2>
+    <table class="dates">
+      <thead>
+        <tr><th scope="col">Milestone</th><th scope="col">Date</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Workshop paper submission</td><td>January 11, 2027</td></tr>
+        <tr><td>Paper acceptance notification</td><td>February 1, 2027</td></tr>
+        <tr><td>Camera-ready submission</td><td>February 19, 2027</td></tr>
+        <tr class="highlight"><td>Workshop date</td><td>April 2, 2027</td></tr>
+      </tbody>
+    </table>
+
+    <hr style="border:0;border-top:1px solid var(--border);margin:48px 0 0">
+
+    <h2 id="organizers">Organizers and Committees</h2>
+
+    <h3>Workshop Organizers</h3>
+    <ul class="people">
+      <li><a href="https://www.linkedin.com/in/samira-afzal" target="_blank" rel="noopener">Samira Afzal</a>, <span class="aff">Texas A&amp;M University-Corpus Christi, USA</span></li>
+      <li><a href="https://sina88.github.io/" target="_blank" rel="noopener">Narges Mehran</a>, <span class="aff">Salzburg Research, Austria</span></li>
+      <li><a href="https://www.ecs.baylor.edu/person/andrew-freeman-phd" target="_blank" rel="noopener">Andrew C. Freeman</a>, <span class="aff">Baylor University, USA</span></li>
+      <li><a href="https://www.tashtarian.net/" target="_blank" rel="noopener">Farzad Tashtarian</a>, <span class="aff">Alpen-Adria-Universität Klagenfurt, Austria</span></li>
+      <li><a href="https://www.linkedin.com/in/mehdi-sookhak-2b251443" target="_blank" rel="noopener">Mehdi Sookhak</a>, <span class="aff">Texas A&amp;M University-Corpus Christi, USA</span></li>
+    </ul>
+
+    <h3>Steering Committee</h3>
+    <ul class="people">
+      <li><a href="https://www.linkedin.com/in/mehdi-sookhak-2b251443" target="_blank" rel="noopener">Mehdi Sookhak</a>, <span class="aff">Texas A&amp;M University-Corpus Christi, USA</span></li>
+      <li><a href="https://www.aau.at/en/team/timmerer-christian/" target="_blank" rel="noopener">Christian Timmerer</a>, <span class="aff">Alpen-Adria-Universität Klagenfurt, Austria</span></li>
+      <li><a href="https://pepsys-group.github.io/team/fp" target="_blank" rel="noopener">Frank Pallas</a>, <span class="aff">University of Salzburg, Austria</span></li>
+    </ul>
+
+    <h2 id="sponsor">Technical Sponsors</h2>
+    <div class="sponsor">
+      <img src="images/CIM.jpeg" width="975" height="975" alt="The Collective Intelligence in Motion (CIM) Lab logo">
+      <img src="images/NSF-web.png" width="600" height="600" alt="U.S. National Science Foundation (NSF) logo">
+    </div>
+  </main>
+
+  <footer>GMSys 2027 · Third International ACM Green Multimedia Systems Workshop</footer>
+
+</body>
+</html>
